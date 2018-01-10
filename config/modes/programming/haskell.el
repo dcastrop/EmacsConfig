@@ -2,7 +2,7 @@
   :ensure t
   :config
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+;;  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (add-hook 'haskell-mode-hook 'linum-mode)
   (add-hook 'haskell-mode-hook 'fci-mode)
   (let ((my-local-path (expand-file-name "~/.local/bin")))
@@ -30,13 +30,21 @@
        (haskell-indent-spaces . 2)))))
   )
 
-;;(use-package ghc
-;;  :ensure t
-;;  )
-;;(use-package company-ghc
-;;  :ensure t
-;;  :config
-;;  (add-to-list 'company-backends 'company-ghc))
+(use-package ghc
+  :ensure t
+  :config
+  (autoload 'ghc-init "ghc" nil t)
+  (autoload 'ghc-debug "ghc" nil t)
+  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+  )
+
+
+(use-package company-ghc
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-ghc)
+  (add-hook 'haskell-mode-hook 'company-mode)
+  (add-hook 'haskell-interactive-mode-hook 'company-mode))
 
 
 (use-package company-ghci
@@ -44,15 +52,12 @@
   :config
   (add-to-list 'company-backends 'company-ghci)
   (add-hook 'haskell-mode-hook 'company-mode)
-  (add-hook 'haskell-interactive-mode-hook 'company-mode)
-  )
+  (add-hook 'haskell-interactive-mode-hook 'company-mode))
 
 (use-package company-cabal
   :ensure t
   :config
-  (add-to-list 'company-backends 'company-cabal)
-  )
+  (add-to-list 'company-backends 'company-cabal))
 
 (use-package ghci-completion
-  :ensure t
-  )
+  :ensure t)

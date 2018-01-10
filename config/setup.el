@@ -36,10 +36,13 @@
       )
 
 ;; Do not use tabs for indentation
-(progn (setq-default indent-tabs-mode nil))
+(setq-default indent-tabs-mode nil)
 
 ;; set default tab char's display width to 4 spaces
 (setq-default tab-width 4)
 
 ;; No trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; line width
+(setq-default fill-column 80)
