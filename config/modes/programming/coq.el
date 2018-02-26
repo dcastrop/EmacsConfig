@@ -11,6 +11,9 @@
 ;; Open .v files with Proof General's Coq mode
 (load (concat pg-dir "/generic/proof-site"))
 
+;; Configuration for proof general
+(setq proof-splash-enable nil)
+
 (use-package company-coq
   :ensure t
   :config

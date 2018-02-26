@@ -20,7 +20,11 @@
 
 ;; set a default font
 (when (member "DejaVu Sans Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "DejaVu Sans Mono-8"))
+  (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100))
+
+;; Fallback for unicode characters
+(set-fontset-font t 'unicode (font-spec :name "Symbola") nil 'prepend)
+(set-fontset-font t 'greek (font-spec :name "DejaVu sans Mono") nil 'prepend)
 
 ;; show cursor position within line
 (column-number-mode 1)
