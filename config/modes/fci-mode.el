@@ -2,7 +2,7 @@
   :ensure t
   :config
   (setq fci-rule-column 80)
-  (setq fci-rule-width 2)
+  (setq fci-rule-width 3)
   (setq fci-rule-color "white")
-  (fci-mode)
+  (add-hook 'after-change-major-mode-hook 'fci-mode)
   )
