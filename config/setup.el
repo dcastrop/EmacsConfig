@@ -20,7 +20,7 @@
 
 ;; set a default font
 (when (member "DejaVu Sans Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100))
+  (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 90))
 
 ;; Fallback for unicode characters
 (set-fontset-font t 'unicode (font-spec :name "Symbola") nil 'prepend)

@@ -1,11 +1,12 @@
-(use-package latex-pretty-symbols
-  :ensure t)
-
 (use-package parsebib
   :ensure t)
 
 (use-package ebib
   :ensure t)
+
+(use-package tex-site
+  :ensure auctex
+  )
 
 (use-package latex
   :defer t
