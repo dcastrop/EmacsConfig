@@ -11,17 +11,30 @@
     (setq haskell-process-type 'stack-ghci)
     (setq haskell-font-lock-symbols 'unicode)
     (setq haskell-interactive-popup-errors nil)
+    ;; -fshow-loaded-modules is a Hack for haskell-mode to work with
+    ;; GHC 8.2. Taken from
+    ;; https://github.com/haskell/haskell-mode/issues/1553#issuecomment-355227561
+    (setq haskell-process-args-ghci
+          '("-ferror-spans" "-fshow-loaded-modules"))
+    (setq haskell-process-args-cabal-repl
+          '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+    (setq haskell-process-args-stack-ghci
+          '("--ghci-options=-ferror-spans" "--no-build" "--no-load"
+          "--ghci-options=-fshow-loaded-modules"))
+    (setq haskell-process-args-cabal-new-repl
+          '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+    (setq haskell-process-log 't)
     )
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
   (add-hook 'haskell-mode-hook 'haskell-mode-setup)
   (add-hook 'haskell-mode-hook 'linum-mode)
   (add-hook 'haskell-mode-hook 'fci-mode))
 
-(use-package ghc
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-  )
+;; (use-package ghc
+;;   :ensure t
+;;   :config
+;;   (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;;   )
 
 ;; (use-package company-ghc
 ;;   :ensure t
