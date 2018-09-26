@@ -1,5 +1,5 @@
 ;; Add /usr/local/bin to path
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
 (setq exec-path (split-string (getenv "PATH") path-separator))
 ;; Setup environment variables using opam

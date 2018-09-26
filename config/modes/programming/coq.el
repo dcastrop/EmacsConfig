@@ -14,6 +14,17 @@
 ;; Configuration for proof general
 (setq proof-splash-enable nil)
 
+;; mathcomp + ssreflect
+(setq mc-dir "~/.emacs.d/lisp/math-comp")
+(setq fetch-mc
+      (concat "git clone https://github.com/math-comp/math-comp.git "
+	      mc-dir))
+
+(unless (file-exists-p mc-dir)
+  (shell-command fetch-mc))
+
+(load-file (concat mc-dir "/mathcomp/ssreflect/pg-ssr.el"))
+
 (use-package company-coq
   :ensure t
   :config
