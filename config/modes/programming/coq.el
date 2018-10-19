@@ -13,6 +13,7 @@
 
 ;; Configuration for proof general
 (setq proof-splash-enable nil)
+(customize-set-variable 'proof-three-window-mode-policy 'hybrid)
 
 ;; mathcomp + ssreflect
 (setq mc-dir "~/.emacs.d/lisp/math-comp")
