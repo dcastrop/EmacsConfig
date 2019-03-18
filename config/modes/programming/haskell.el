@@ -6,10 +6,10 @@
   (add-to-list 'exec-path my-local-path))
 
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (defun haskell-mode-setup ()
     (setq haskell-process-type 'stack-ghci)
-    (setq haskell-font-lock-symbols 'unicode)
+    ;; (setq haskell-font-lock-symbols 'unicode)
     (setq haskell-interactive-popup-errors nil)
     ;; -fshow-loaded-modules is a Hack for haskell-mode to work with
     ;; GHC 8.2. Taken from
@@ -25,23 +25,16 @@
           '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
     (setq haskell-process-log 't)
     )
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-  (add-hook 'haskell-mode-hook 'haskell-mode-setup)
-  (add-hook 'haskell-mode-hook 'linum-mode)
-  (add-hook 'haskell-mode-hook 'fci-mode))
 
-;; (use-package ghc
-;;   :ensure t
-;;   :config
-;;   (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-;;   )
+   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+   (add-hook 'haskell-mode-hook 'haskell-mode-setup)
+   (add-hook 'haskell-mode-hook 'linum-mode)
+   (add-hook 'haskell-mode-hook 'fci-mode))
 
-;; (use-package company-ghc
-;;   :ensure t
-;;   :config
-;;   (add-to-list 'company-backends 'company-ghc)
-;;   (add-hook 'haskell-mode-hook 'company-mode)
-;;   (add-hook 'haskell-interactive-mode-hook 'company-mode))
+(use-package intero
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
 (use-package company-ghci
   :ensure t

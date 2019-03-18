@@ -19,12 +19,12 @@
 (show-paren-mode 1)
 
 ;; set a default font
-(when (member "DejaVu Sans Mono" (font-family-list))
-  (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 90))
+(when (member "Fira Code" (font-family-list))
+  (set-face-attribute 'default nil :font "Fira Code" :height 80))
 
 ;; Fallback for unicode characters
-(set-fontset-font t 'unicode (font-spec :name "Symbola") nil 'prepend)
-(set-fontset-font t 'greek (font-spec :name "DejaVu sans Mono") nil 'prepend)
+;;(set-fontset-font t 'unicode (font-spec :name "Symbola") nil 'prepend)
+;;(set-fontset-font t 'greek (font-spec :name "Fira Code") nil 'prepend)
 
 ;; show cursor position within line
 (column-number-mode 1)
@@ -39,7 +39,7 @@
       kept-old-versions 5    ; and how many of the old
       )
 (setq auto-save-file-name-transforms
-      `((".*" ,"~/.emacs.d/autosave" t)))
+      `((".*" ,"~/.emacs.d/auto-save-list" t)))
 
 ;; Do not use tabs for indentation
 (setq-default indent-tabs-mode nil)
