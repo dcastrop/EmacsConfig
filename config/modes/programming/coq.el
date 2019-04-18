@@ -29,4 +29,5 @@
 (use-package company-coq
   :ensure t
   :config
-  (add-hook 'coq-mode-hook #'company-coq-mode))
+  (add-hook 'coq-mode-hook #'company-coq-mode)
+  (setq company-coq-disabled-features '(prettify-symbols)))

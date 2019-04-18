@@ -20,7 +20,7 @@
 
 ;; set a default font
 (when (member "Fira Code" (font-family-list))
-  (set-face-attribute 'default nil :font "Fira Code" :height 80))
+  (set-face-attribute 'default nil :font "Fira Code" :height 90))
 
 ;; Fallback for unicode characters
 ;;(set-fontset-font t 'unicode (font-spec :name "Symbola") nil 'prepend)
